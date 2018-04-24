@@ -3,6 +3,7 @@ package org.rundeck.api.services
 import com.mongodb.MongoClient
 import groovy.json.JsonOutput
 import net.sf.json.JSONSerializer
+import org.springframework.beans.factory.annotation.Value
 
 import java.text.SimpleDateFormat
 
@@ -12,14 +13,10 @@ import org.bson.Document
 
 class RundeckService {
 
-    def auth = ""
-    def endpointUrl = ""
-    def endpointBase = ""
-
     def MONGO_HOST = "mongo"
     def MONGO_PORT  = 27017
 
-    /*private getProperties() {
+    private getProperties() {
         Properties properties = new Properties()
         File propertiesFile = new File('rundeck-config.txt')
 
@@ -28,16 +25,16 @@ class RundeckService {
         }
 
         return properties
-    }*/
+    }
 
     def getData(String url){
         try {
-            def props = new Properties()
-            props = getProperties()
+            def propertieFile = new Properties()
+            propertieFile = getProperties()
 
-            /*def auth = props.auth
-            def endpointUrl = props.endpointUrl
-            def endpointBase = props.endpointBase*/
+            def auth = propertieFile.auth
+            def endpointUrl = propertieFile.endpointUrl
+            def endpointBase = propertieFile.endpointBase
 
             print "+++++++ " + endpointUrl + " +++++++ "
             print "+++++++ " + endpointUrl + " +++++++ "
@@ -66,12 +63,12 @@ class RundeckService {
 
     def getData_JsonObject(String url){
         try {
-            def props = new Properties()
-            props = getProperties()
+            def propertieFile = new Properties()
+            propertieFile = getProperties()
 
-            /*def auth = props.auth
-            def endpointUrl = props.endpointUrl
-            def endpointBase = props.endpointBase*/
+            def auth = propertieFile.auth
+            def endpointUrl = propertieFile.endpointUrl
+            def endpointBase = propertieFile.endpointBase
 
             print "+++++++ " + endpointUrl + " +++++++ "
 
@@ -94,12 +91,12 @@ class RundeckService {
 
     def getData_JsonArray(String url){
         try {
-            def props = new Properties()
-            props = getProperties()
+            def propertieFile = new Properties()
+            propertieFile = getProperties()
 
-            /*def auth = props.auth
-            def endpointUrl = props.endpointUrl
-            def endpointBase = props.endpointBase*/
+            def auth = propertieFile.auth
+            def endpointUrl = propertieFile.endpointUrl
+            def endpointBase = propertieFile.endpointBase
 
             print "+++++++ " + endpointUrl + " +++++++ "
 
