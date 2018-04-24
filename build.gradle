@@ -1,0 +1,46 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.rundeck'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.codehaus.groovy:groovy')
+
+	compile "io.springfox:springfox-swagger2:2.6.1"
+	compile "io.springfox:springfox-swagger-ui:2.6.1"
+
+    //revisar
+    compile "org.springframework.boot:spring-boot-starter-hateoas"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+
+    compile('org.codehaus.groovy:groovy-all:2.4.13')
+    compile('org.codehaus.groovy.modules.http-builder:http-builder:0.7.1')
+    compile('org.apache.httpcomponents:httpclient:4.5.5')
+    compile 'org.mongodb:mongo-java-driver:3.6.3'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
+    compile 'com.google.code.gson:gson:2.8.2'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
