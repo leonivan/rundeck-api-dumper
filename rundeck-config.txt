@@ -1,0 +1,3 @@
+auth=9rPCRcyrEDazlPgjHX8f7lHzDW1jfEtl
+endpointUrl=https://ops-us.aktana.com
+endpointBase=/api/15/
